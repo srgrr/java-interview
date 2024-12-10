@@ -1,7 +1,7 @@
 # Users and Emails
 
 ## Description
-This project contains a Micronaut based HTTP server. Don't worry about not knowing Micronaut. You can ask as many questions as you want about the framework.
+This project contains a small HTTP server. Don't worry about not knowing anything related to the framework. You can ask as many questions as you want.
 
 The server stores Users. A User has an identifier, a name and an email.
 
