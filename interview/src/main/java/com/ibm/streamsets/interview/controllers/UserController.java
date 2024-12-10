@@ -16,6 +16,8 @@ import io.micronaut.http.annotation.Delete;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Post;
 import io.micronaut.http.annotation.Produces;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import jakarta.inject.Inject;
 
 @Controller("/user")
@@ -26,6 +28,7 @@ public class UserController {
 
   @Post
   @Produces(MediaType.APPLICATION_JSON)
+  @Operation(summary = "Create user", description = "Creates user with given name and address")
   public HttpResponse<User> createUser(@Body UserCreationRequest request) {
     User storedUser = backend.createUser(request.user());
     return HttpResponse.ok(storedUser);
@@ -33,14 +36,16 @@ public class UserController {
 
   @Get(uri = "{id}")
   @Produces(MediaType.APPLICATION_JSON)
-  public HttpResponse<User> getUser(String id) {
+  @Operation(summary = "Get user", description = "Get user based on ID")
+  public HttpResponse<User> getUser(@Parameter(description = "User ID") String id) {
     User retrievedUser = backend.getUser(id);
     return HttpResponse.ok(retrievedUser);
   }
 
   @Delete(uri = "{id}")
   @Produces(MediaType.APPLICATION_JSON)
-  public HttpResponse<User> deleteUser(String id) {
+  @Operation(summary = "Delete user", description = "Delete user based on ID")
+  public HttpResponse<User> deleteUser(@Parameter(description = "User ID") String id) {
     User deletedUser = backend.deleteUser(id);
     return HttpResponse.ok(deletedUser);
   }

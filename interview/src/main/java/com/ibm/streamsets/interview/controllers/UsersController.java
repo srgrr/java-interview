@@ -13,6 +13,10 @@ import io.micronaut.http.annotation.QueryValue;
 import jakarta.inject.Inject;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 
 @Controller("/users")
 public class UsersController {
@@ -21,7 +25,8 @@ public class UsersController {
   Backend backend;
 
   @Get
-  public HttpResponse<List<User>> getUsers(@QueryValue String emailDomain) {
+  @Operation(summary = "Retrieve users with email domain filter", description = "Return list of all users that gave email in given domain")
+  public HttpResponse<List<User>> getUsers(@Parameter(description = "Search email domain") @QueryValue String emailDomain) {
     // TODO: Your code goes here :)
     return null;
   }
