@@ -20,11 +20,15 @@ public class InMemoryUserRepository implements UserRepository {
 
   @Override
   public User getUser(String userId) {
-    return null;
+    return memory.get(userId);
   }
 
   @Override
   public User deleteUser(String userId) {
-    return null;
+    return memory.remove(userId);
+  }
+
+  public Map<String, User> getMemory() {
+    return memory;
   }
 }
