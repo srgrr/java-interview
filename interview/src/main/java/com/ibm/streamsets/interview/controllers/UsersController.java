@@ -1,5 +1,9 @@
+/*
+ * IBM Confidential
+ * PID 5900-BAF
+ * Copyright StreamSets Inc., an IBM Company 2024
+ */
 package com.ibm.streamsets.interview.controllers;
-
 import com.ibm.streamsets.interview.domain.Backend;
 import com.ibm.streamsets.interview.domain.User;
 import io.micronaut.http.HttpResponse;
@@ -18,7 +22,7 @@ public class UsersController {
 
   @Get
   public HttpResponse<List<User>> getUsers(@QueryValue String emailDomain) {
-    List<User> retrievedUsers = backend.getUsersByEmail(emailDomain);
-    return HttpResponse.ok(retrievedUsers);
+    // TODO: Your code goes here :)
+    return null;
   }
 }
